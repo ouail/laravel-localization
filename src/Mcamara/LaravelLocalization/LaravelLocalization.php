@@ -374,7 +374,7 @@ class LaravelLocalization
         $route = '';
 
         if ($forceDefaultLocation || !($locale === $this->defaultLocale && $this->hideDefaultLocaleInURL())) {
-            $route = '/'.$locale;
+            $route = '/'.$this->getLocaleFromMapping($locale);
         }
         if (\is_string($locale) && $this->translator->has($transKeyName, $locale)) {
             $translation = $this->translator->get($transKeyName, [], $locale);
